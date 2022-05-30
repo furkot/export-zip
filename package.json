@@ -1,0 +1,29 @@
+{
+  "name": "@furkot/export-zip",
+  "version": "0.0.0",
+  "description": "Composite exporter that solves problem of downloading/exporting multiple files.",
+  "author": {
+    "name": "Damian Krzeminski",
+    "email": "pirxpilot@furkot.com",
+    "url": "https://pirxpilot.me"
+  },
+  "repository": "furkot/export-zip",
+  "license": "MIT",
+  "keywords": [
+    "export-zip",
+    "furkot",
+    "export"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "jshint": "~2",
+    "tape": "~5"
+  },
+  "scripts": {
+    "test": "make check"
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ]
+}
