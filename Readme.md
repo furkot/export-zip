@@ -17,7 +17,14 @@ $ npm install --save @furkot/export-zip
 ```js
 const exportZip = require('@furkot/export-zip');
 
-exportZip();
+const buffers = exportZip([
+  { name: 'day-1', bytes: day1 },
+  { name: 'day-2', bytes: day2 }
+]);
+
+// buffers is now a generator/iterator producing store-only zip file
+const zip = new Blob(Array.from(buffers));
+
 ```
 
 ## License
