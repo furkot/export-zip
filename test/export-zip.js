@@ -1,5 +1,5 @@
-const { readFile } = require('fs').promises;
-const { resolve } = require('path');
+const { readFile } = require('node:fs').promises;
+const { resolve } = require('node:path');
 
 const test = require('tape');
 const exportZip = require('../');
@@ -8,10 +8,10 @@ const exportZip = require('../');
 // zip -X -0 test.zip a.txt b.bin
 
 test('zip files', async function (t) {
-  const files = [ 'a.txt', 'b.bin', 'test.zip' ]
+  const files = ['a.txt', 'b.bin', 'test.zip']
     .map(name => resolve(__dirname, 'fixtures', name))
     .map(name => readFile(name));
-  const [ a, b, zip ] = await Promise.all(files);
+  const [a, b, zip] = await Promise.all(files);
 
   const date = new Date(Date.UTC(2022, 4, 30, 14, 2));
 
