@@ -15,7 +15,7 @@ $ npm install --save @furkot/export-zip
 ## Usage
 
 ```js
-const exportZip = require('@furkot/export-zip');
+import exportZip from '@furkot/export-zip';
 
 const buffers = exportZip([
   { name: 'day-1', bytes: day1 },
@@ -31,11 +31,11 @@ const zip = new Blob(Array.from(buffers));
 
 MIT © [Damian Krzeminski](https://pirxpilot.me)
 
-[npm-image]: https://img.shields.io/npm/v/@furkot/export-zip.svg
+[npm-image]: https://img.shields.io/npm/v/@furkot/export-zip
 [npm-url]: https://npmjs.org/package/@furkot/export-zip
 
 [build-url]: https://github.com/furkot/export-zip/actions/workflows/check.yaml
-[build-image]: https://img.shields.io/github/workflow/status/furkot/export-zip/check
+[build-image]: https://img.shields.io/github/actions/workflow/status/furkot/export-zip/check.yaml?branch=main
 
 [deps-image]: https://img.shields.io/librariesio/release/npm/@furkot/export-zip
 [deps-url]: https://libraries.io/npm/@furkot%2Fexport-zip
