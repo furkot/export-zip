@@ -1,17 +1,16 @@
-const { readFile } = require('fs').promises;
-const { resolve } = require('path');
-
-const test = require('tape');
-const exportZip = require('../');
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import test from 'node:test';
+import exportZip from '../lib/export-zip.js';
 
 // reference text.zip is generated with 'store only' and 'no extras' options
 // zip -X -0 test.zip a.txt b.bin
 
-test('zip files', async function (t) {
-  const files = [ 'a.txt', 'b.bin', 'test.zip' ]
-    .map(name => resolve(__dirname, 'fixtures', name))
+test('zip files', async t => {
+  const files = ['a.txt', 'b.bin', 'test.zip']
+    .map(name => resolve(import.meta.dirname, 'fixtures', name))
     .map(name => readFile(name));
-  const [ a, b, zip ] = await Promise.all(files);
+  const [a, b, zip] = await Promise.all(files);
 
   const date = new Date(Date.UTC(2022, 4, 30, 14, 2));
 
@@ -22,5 +21,5 @@ test('zip files', async function (t) {
 
   const result = Buffer.concat(Array.from(data).map(b => new Uint8Array(b)));
 
-  t.deepEqual(result, zip);
+  t.assert.deepEqual(result, zip);
 });
