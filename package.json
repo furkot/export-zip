@@ -16,8 +16,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "tape": "~5"
+    "@biomejs/biome": "^1.9.4"
   },
   "scripts": {
     "test": "make check"

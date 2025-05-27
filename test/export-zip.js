@@ -1,13 +1,13 @@
-const { readFile } = require('node:fs').promises;
+const { readFile } = require('node:fs/promises');
 const { resolve } = require('node:path');
+const test = require('node:test');
 
-const test = require('tape');
 const exportZip = require('../');
 
 // reference text.zip is generated with 'store only' and 'no extras' options
 // zip -X -0 test.zip a.txt b.bin
 
-test('zip files', async function (t) {
+test('zip files', async t => {
   const files = ['a.txt', 'b.bin', 'test.zip']
     .map(name => resolve(__dirname, 'fixtures', name))
     .map(name => readFile(name));
@@ -22,5 +22,5 @@ test('zip files', async function (t) {
 
   const result = Buffer.concat(Array.from(data).map(b => new Uint8Array(b)));
 
-  t.deepEqual(result, zip);
+  t.assert.deepEqual(result, zip);
 });
