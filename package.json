@@ -1,6 +1,6 @@
 {
   "name": "@furkot/export-zip",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Composite exporter that solves problem of downloading/exporting multiple files.",
   "type": "module",
   "exports": "./lib/export-zip.js",
